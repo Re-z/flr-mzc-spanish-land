@@ -12,8 +12,7 @@ block content
 	section.intro
 		header.header
 			.inner
-				svg.icon-logo
-					use(xlink:href='#logo')
+				svg.icon-logo: use(xlink:href='#logo')
 		.inner
 			.intro__box
 				.intro__left
@@ -21,31 +20,69 @@ block content
 						mark.highlighted oro
 						span con Monfex
 					h2 Opere CFD con uno de los metales más populares del mundo
-				.intro__right
-					//- form goes here
-			
-			mixin introIcon(img, text)
-					.intro__icon
-						svg(class= 'icon-' + img)
-							use(xlink:href='#' + img)
-						p=text
-			.intro__icons
-				+introIcon('man', 'Ayuda analítica rápida')
-				+introIcon('tab', 'Centro de formación exhaustiv')
-				+introIcon('comp', 'Plataforma de uso sencillo')
-				+introIcon('chart', 'Spreads competitivos')
-	section.chart
-		.inner
-			h2.chart__title Opere CFD sobre activos seguros
-			h2.chart__subtitle ¿Presenta el oro una oportunidad dorada?
-			p.chart__text Como una reserva de valor única, el oro es <br> un activo seguro de fácil elección en momentos de incertidumbre.
-			.chart__box
-				svg(class='icon-big-chart')
-					use(xlink:href='#big-chart')
-				span.chart__box-year-1 2019
-				span.chart__box-year-2 2020
-				span.chart__point 
-			
-			a.btn.centered(href="") Explorar la plataforma
-	
+				.intro__right#form
+					h3.intro__form-title Crea una cuenta
+					.form-wrapper
+						.form-block-2.whitee._mnfx-form-container(data-action='https://lp.monfex.com/api/action/AoekF8gYLvQT/register')
+						p.intro__postform Masz już konto <a href="https://trade.monfex.com/sign-in"> Monfex </a>? Proszę się zalogować.
+							
 
+
+
+			mixin iconAndText(img, text)
+					.icon-and-text
+						svg.icon-and-text__icon(class= 'icon-' + img): use(xlink:href='#' + img)
+						p.icon-and-text__text=text
+			.intro__icons
+				+iconAndText('man', 'Ayuda analítica rápida')
+				+iconAndText('tab', 'Centro de formación exhaustiv')
+				+iconAndText('comp', 'Plataforma de uso sencillo')
+				+iconAndText('chart', 'Spreads competitivos')
+	main
+		section.chart
+			.inner
+				h2.chart__title Opere CFD sobre activos seguros
+				h2.chart__subtitle ¿Presenta el oro una oportunidad dorada?
+				p.chart__text Como una reserva de valor única, el oro es <br> un activo seguro de fácil elección en momentos de incertidumbre.
+				.chart__box
+					svg.icon-big-chart: use(xlink:href='#big-chart')
+					span.chart__box-year-1 2019
+					span.chart__box-year-2 2020
+					span.chart__point 
+				
+				a.btn.centered(href="#form") Explorar la plataforma
+		section.factores
+			.inner
+				.factores__box
+					h2.factores__title Factores que afectan positivamente al 
+						mark.highlighted oro:
+
+					ul.factores__list
+						li.factores__list-item
+							svg.icon-mark: use(xlink:href="#mark")
+							span.factores__list-text Oferta y demanda
+						li.factores__list-item
+							svg.icon-mark: use(xlink:href="#mark")
+							span.factores__list-text Tipos de interés bajos
+						li.factores__list-item
+							svg.icon-mark: use(xlink:href="#mark")
+							span.factores__list-text Incertidumbre geopolítica
+
+					a.btn.centered(href="#form") Invertir ahora
+		section.prefooter
+			.inner
+				h2.prefooter__title Monfex - Inteligencia bursátil
+				p.prefooter__subtitle Utilice las herramientas avanzadas de Monfex parar operar <br> de manera inteligente con las materias primas.
+				.prefooter__box
+					+iconAndText('chart2', 'Seminarios web online interactivos')
+					+iconAndText('search', 'Informes diarios del mercado y alertas')
+					+iconAndText('book', 'Biblioteca en detalle de eBooks')
+
+				a.btn.centered(href="#form") Saber más
+		footer.footer
+			.inner
+				small Monfex 2020 Todos los derechos reservados
+//- TODO - Check scroll on mac
+//- - add form
+//- add mobile
+//- change color in big chart svg
