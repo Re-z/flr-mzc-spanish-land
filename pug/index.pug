@@ -1,0 +1,51 @@
+extends not-compiling/_layout
+
+block title
+	title Index page
+block head
+	meta(name="keywords" content="")
+	meta(name="description" content="")
+
+block content
+	.svg-sprite.is-hidden
+		include ../img/svg-output/svg-sprite.svg
+	section.intro
+		header.header
+			.inner
+				svg.icon-logo
+					use(xlink:href='#logo')
+		.inner
+			.intro__box
+				.intro__left
+					h1 Encuentre
+						mark.highlighted oro
+						span con Monfex
+					h2 Opere CFD con uno de los metales más populares del mundo
+				.intro__right
+					//- form goes here
+			
+			mixin introIcon(img, text)
+					.intro__icon
+						svg(class= 'icon-' + img)
+							use(xlink:href='#' + img)
+						p=text
+			.intro__icons
+				+introIcon('man', 'Ayuda analítica rápida')
+				+introIcon('tab', 'Centro de formación exhaustiv')
+				+introIcon('comp', 'Plataforma de uso sencillo')
+				+introIcon('chart', 'Spreads competitivos')
+	section.chart
+		.inner
+			h2.chart__title Opere CFD sobre activos seguros
+			h2.chart__subtitle ¿Presenta el oro una oportunidad dorada?
+			p.chart__text Como una reserva de valor única, el oro es <br> un activo seguro de fácil elección en momentos de incertidumbre.
+			.chart__box
+				svg(class='icon-big-chart')
+					use(xlink:href='#big-chart')
+				span.chart__box-year-1 2019
+				span.chart__box-year-2 2020
+				span.chart__point 
+			
+			a.btn.centered(href="") Explorar la plataforma
+	
+

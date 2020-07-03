@@ -1,0 +1,188 @@
+
+@import 'not-compiling/reset'
+$tab: 1024
+$mob: 760
+
+
+=r($width)
+    @media screen and (max-width: $width + 'px')
+        @content
+body
+    font-family: 'Montserrat', sans-serif
+    
+// @keyframes slightAppear
+//     from
+//         opacity: 0
+//         transform: translateX(-20px)
+//     to
+//         opacity: 1
+//         transform: translateX(0)
+*
+    box-sizing: border-box
+    transition: .25s
+    &::selection
+        background: #ED145B
+        color: white
+a
+    text-decoration: none
+    color: inherit
+.inner
+    width: 1100px
+    margin: 0 auto
+    padding: 0 20px
+.highlighted
+    color: #ED145B
+
+.header
+    padding: 50px 0 25px 0
+
+.intro
+    background: url(../img/gold-bg.jpg) center center no-repeat
+    background-size: cover
+    min-height: 800px
+    
+    &__box
+        display: grid
+        grid-template-columns: 625px 1fr
+        grid-column-gap: 120px
+    &__left
+        padding-top: 20px
+        h1
+            font-weight: bold
+            font-size: 74px
+            color: white
+            mark
+                background: transparent
+            span
+                display: block
+                font-size: 38px
+                margin-top: 10px
+                color: white
+        h2
+            color: white
+            font-size: 20px
+            margin-top: 40px
+
+    &__right
+        outline: 1px solid red
+        padding-top: 40px //
+    &__icons
+        display: flex
+        justify-content: space-between
+        margin-top: 120px
+    &__icon
+        text-align: center
+        min-height: 129px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        svg
+            display: block
+            margin: 0 auto
+        p
+            font-size: 18px
+            font-weight: bold
+            color: white
+            text-transform: uppercase
+            max-width: 233px
+
+.chart
+    background: #07041A
+    padding: 150px 0 100px 0
+    &__title, &__subtitle, &__text
+        color: white
+        text-align: center
+    &__title
+        font-weight: 500
+        font-size: 38px
+    &__subtitle
+        font-weight: bold
+        font-size: 48px
+        margin: 10px 0 40px 0
+    &__text
+        line-height: 24px
+        font-size: 20px
+    &__box
+        position: relative
+        padding-bottom: 80px
+        max-width: 704px
+        max-height: 446px
+        margin: 80px auto 80px auto
+        // outline: 1px solid blue
+        svg
+            display: block
+            margin: 0 auto
+        &-year-1, &-year-2
+            position: absolute
+            font-size: 18px
+            font-weight: bold
+            bottom: 0
+        &-year-1
+            color: white
+            left: 170px
+        &-year-2
+            color: #ED145B
+            right: 150px
+    &__point
+        width: 20px
+        height: 20px
+        border-radius: 50%
+        background: #ED145B
+        position: absolute
+        top: 70px
+        right: 93px
+        border: 1px solid white
+        &:after, &:before
+            display: block
+            position: absolute
+            top: 50%
+            left: 50%
+            content: ''
+            border-radius: 50%
+            width: 60px
+            height: 60px
+            animation: pulsing .7s linear infinite forwards alternate
+            background: #ED145B
+        &:before
+            width: 40px
+            height: 40px
+
+
+.btn
+    background: #00FFDD
+    width: 332px
+    height: 54px
+    text-transform: uppercase
+    font-weight: bold
+    font-size: 18px
+    color: #1B1A22
+    display: block
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 3px
+    &:hover
+        background: #ED145B
+        color: white
+.centered
+    margin: 0 auto
+@keyframes pulsing
+    from
+        transform: scale(0)
+        opacity: .5
+        transform: translate(-50%, -50%)
+    to
+        transform: scale(1)
+        opacity: 0
+        transform: translate(-50%, -50%)
+
+.is-hidden
+    display: none
+
+//generate sprite icons classes
+$svg-icons: [ 'logo' 200px 33px, 'man' 61px 62px, 'tab' 58px 82px, 'comp' 62px 73px, 'chart' 64px 77px, 'big-chart' 704px 397px ]
+
+@each $name, $width, $height in $svg-icons
+    .icon-#{$name}
+        width: $width
+        height: $height
