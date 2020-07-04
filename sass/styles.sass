@@ -1,7 +1,8 @@
 
 @import 'not-compiling/reset'
-$tab: 1024
-$mob: 760
+$desc: 1100
+$tab: 820
+$mob: 600
 
 
 =r($width)
@@ -12,6 +13,8 @@ html
 body
     font-family: 'Montserrat', sans-serif
     color: white
+    min-width: 375px
+    overflow-x: hidden
 // @keyframes slightAppear
 //     from
 //         opacity: 0
@@ -41,12 +44,19 @@ button
     width: 1100px
     margin: 0 auto
     padding: 0 20px
+    +r($desc)
+        width: 100%
 .highlighted
     color: #ED145B
 
 .header
     padding: 50px 0 25px 0
-
+    +r($mob)
+        padding: 40px 0 20px 0
+    &__inner
+        +r($desc)
+            display: flex
+            justify-content: center
 .intro
     background: url(../img/gold-bg.jpg) center center no-repeat
     background-size: cover
@@ -59,14 +69,24 @@ button
             color: #00FFDD
             text-decoration: underline
     &__box
-        display: grid
-        grid-template-columns: 625px 1fr
-        grid-column-gap: 120px
+        // display: grid
+        // grid-template-columns: 625px 1fr
+        // grid-column-gap: 120px
+        display: flex
+        justify-content: space-between
+        // flex-wrap: wrap
+        +r($desc)
+            flex-wrap: wrap
     &__left
         padding-top: 20px
+        +r($desc)
+            width: 100%
+            text-align: center
         h1
             font-weight: bold
             font-size: 74px
+            +r($mob)
+                font-size: 60px
             span
                 display: block
                 font-size: 38px
@@ -77,7 +97,9 @@ button
 
     &__right
         // outline: 1px solid red
-        min-width: 332px
+        max-width: 332px
+        +r($desc)
+            margin: 40px auto
     &__form-title
         font-size: 38px
         font-weight: 500
@@ -86,14 +108,22 @@ button
         display: flex
         justify-content: space-between
         margin-top: 120px
+        +r($desc)
+            flex-wrap: wrap
+            justify-content: center
+            margin-top: 60px
+        +r($mob)
+            margin-top: 20px
     
 .icon-and-text
+    margin: 10px
     &__icon
         min-height: 129px
         display: flex
         flex-direction: column
         justify-content: space-between
         margin: 0 auto
+
         svg
             display: block
             margin: 0 auto
@@ -106,28 +136,43 @@ button
 .chart
     background: #07041A
     padding: 150px 0 100px 0
+    +r($desc)
+        padding: 100px 0 70px 0
+    +r($mob)
+        padding: 80px 0 60px 0
     &__title, &__subtitle, &__text
         text-align: center
     &__title
         font-weight: 500
         font-size: 38px
+        +r($mob)
+            font-size: 30px
     &__subtitle
         font-weight: bold
         font-size: 48px
         margin: 10px 0 40px 0
+        +r($mob)
+            font-size: 40px
+            margin: 30px 0 
     &__text
         line-height: 24px
         font-size: 20px
+    &__wrap
+        
     &__box
+        // display: inline
         position: relative
         padding-bottom: 80px
         max-width: 704px
         max-height: 446px
         margin: 80px auto 80px auto
-        // outline: 1px solid blue
+        +r($desc)
+            display: none
         svg
             display: block
             margin: 0 auto
+            +r($tab)
+                width: 100%
         &-year-1, &-year-2
             position: absolute
             font-size: 18px
@@ -138,6 +183,18 @@ button
         &-year-2
             color: #ED145B
             right: 150px
+    &__box-mob
+            display: none
+            text-align: center
+            +r($desc)
+                display: block
+                margin: 40px auto
+            
+            +r($mob)
+                margin: 0 auto
+
+            svg 
+                width: 100%
     &__point
         width: 20px
         height: 20px
@@ -165,7 +222,8 @@ button
 
 .btn
     background: #00FFDD
-    width: 332px
+    width: 100%
+    max-width: 332px
     height: 54px
     text-transform: uppercase
     font-weight: bold
@@ -186,13 +244,25 @@ button
     padding: 105px 0 150px 0
     background: url(../img/factores-bg.png) #07041A center center no-repeat
     background-size: cover
+    +r($desc)
+        padding: 80px 0 120px 0
+    +r($mob)
+        padding: 60px 0 100px 0   
     &__box
         max-width: 531px
         margin: 0 auto
+        +r($desc)
+            text-align: center
+        +r($tab)
+            max-width: 100%
+            width: 100%
     &__title
         font-weight: bold
         font-size: 48px
         line-height: 59px
+        +r($mob)
+            font-size: 40px
+            line-height: 45px
     &__list
         margin: 40px 0 80px
         &-item:not(:last-of-type)
@@ -204,6 +274,10 @@ button
 .prefooter
     background: #07041A
     padding: 105px 0 170px 0
+    +r($desc)
+        padding: 80px 0 120px 0
+    +r($mob)
+        padding: 60px 0 100px 0
     &__title
         font-weight: bold
         font-size: 48px
@@ -218,13 +292,25 @@ button
         display: flex
         justify-content: space-between
         margin: 90px 0
+        +r($desc)
+            flex-wrap: wrap
+            justify-content: center
+            margin: 70px 0
+        +r($mob)
+            margin: 50px 0
 .footer
     background: #110F25
     padding: 35px 55px
+    +r($desc)
+        padding: 30px 40px
+    +r($mob)
+        padding: 25px 35px
     small
         display: block
         font-size: 20px
         text-align: center
+        +r($mob)
+            font-size: 18px
 .centered
     margin: 0 auto
 

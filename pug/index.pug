@@ -6,12 +6,13 @@ block head
 	meta(name="keywords" content="")
 	meta(name="description" content="")
 
+
 block content
 	.svg-sprite.is-hidden
 		include ../img/svg-output/svg-sprite.svg
 	section.intro
 		header.header
-			.inner
+			.inner.header__inner
 				svg.icon-logo: use(xlink:href='#logo')
 		.inner
 			.intro__box
@@ -45,11 +46,16 @@ block content
 				h2.chart__subtitle ¿Presenta el oro una oportunidad dorada?
 				p.chart__text Como una reserva de valor única, el oro es <br> un activo seguro de fácil elección en momentos de incertidumbre.
 				.chart__box
-					svg.icon-big-chart: use(xlink:href='#big-chart')
+					svg.icon-big-chart
+						use(xlink:href='#big-chart')
+					span.chart__point 
 					span.chart__box-year-1 2019
 					span.chart__box-year-2 2020
-					span.chart__point 
-				
+				.chart__box-mob
+					svg.icon-big-chart
+						use(xlink:href='#big-chart-mob')
+
+
 				a.btn.centered(href="#form") Explorar la plataforma
 		section.factores
 			.inner
@@ -83,6 +89,3 @@ block content
 			.inner
 				small Monfex 2020 Todos los derechos reservados
 //- TODO - Check scroll on mac
-//- - add form
-//- add mobile
-//- change color in big chart svg
